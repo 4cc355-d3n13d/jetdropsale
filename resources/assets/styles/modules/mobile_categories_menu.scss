@@ -1,0 +1,16 @@
+.mobile-categories-menu {
+  display: none;
+  position: relative;
+
+
+  @media only screen and (max-width: 768px)  {
+    display: flex;
+  }
+
+  .dropdown {
+    position: absolute;
+    .dropdown-item {
+      cursor: pointer;
+    }
+  }
+}

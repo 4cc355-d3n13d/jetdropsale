@@ -1,0 +1,32 @@
+.search {
+    background-color: #fafafa;
+    border: 2px solid #f0f0f0;
+    border-radius: 3px;
+    display: flex;
+    height: $base-gutter * 4;
+    padding-left: $base-gutter;
+    width: 100%;
+    &__field {
+        background-color: inherit;
+        border-color: transparent;
+        color: #666;
+        flex: 1;
+        font-size: 14px;
+        line-height: 20px;
+        width: 100%;
+    }
+    &__trigger {
+        align-items: center;
+        color: #666;
+        display: flex;
+        height: $base-gutter * 4 - 4px;
+        justify-content: center;
+        width: $base-gutter * 4 - 4px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &.is-focus {
+        border-color: #ebebeb;
+    }
+}

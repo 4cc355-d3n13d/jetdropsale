@@ -1,0 +1,181 @@
+variables:
+  PROJECT_NAME: web-app
+stages:
+
+  - setup
+  - build_docker
+  - deploy
+  - logs
+
+
+
+
+composer_install:
+  before_script:
+    - apk add openssh-client
+    - mkdir -p .ssh /root/.ssh
+    - chmod 700 ~/.ssh
+    - eval "$(ssh-agent -s)"
+    - echo "$CPADEV_IDRSA" | ssh-add - > ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  stage: setup
+  image: registry.cpadev.com:4567/dropwow2/php-base-image/php-base-image:latest
+  tags: 
+    - k8s
+  script:
+    - composer install
+  artifacts:
+    paths:
+      - bootstrap/
+      - vendor/
+  cache:
+    key: composer
+    paths:
+      - vendor/
+  only:
+    - develop
+    - master
+
+
+.build_npm: &build_npm
+  stage: setup
+  image: node:10
+  tags: 
+    - k8s
+  script:
+    - npm install
+    - npm run production
+  only:
+    - develop
+    - master
+    - k8s
+  cache:
+    key: node
+    paths:
+    - node_modules/
+  artifacts:
+    paths:
+      - public/
+
+
+build_npm_dev:
+  <<: *build_npm
+  variables:
+    NAMESPACE: dev
+  only:
+    - develop
+
+
+build_npm_prod:
+  <<: *build_npm
+  variables:
+    NAMESPACE: prod
+  only:
+    - master
+
+.build_docker: &build_docker
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  stage: build_docker
+  image: docker:stable-git
+  tags: 
+    - k8s
+  script:
+    - git clone https://gitlab-ci-token:$CI_JOB_TOKEN@git.cpadev.com/dropwow2/deploy-chart.git
+    - echo $CI_PIPELINE_ID ${CI_COMMIT_SHA:0:8} > VERSION
+    - ln -s /var/www/app/storage/app/public public/storage
+    - docker build -f deploy-chart/build/nginx.dockerfile -t $CI_REGISTRY_IMAGE/$NAMESPACE/nginx:v$CI_PIPELINE_ID .
+    - docker push $CI_REGISTRY_IMAGE/$NAMESPACE/nginx:v$CI_PIPELINE_ID
+    - docker build -f deploy-chart/build/phpfpm.dockerfile -t $CI_REGISTRY_IMAGE/$NAMESPACE/phpfpm:v$CI_PIPELINE_ID .
+    - docker push $CI_REGISTRY_IMAGE/$NAMESPACE/phpfpm:v$CI_PIPELINE_ID
+  
+build_docker_dev:
+  <<: *build_docker
+  variables:
+    NAMESPACE: dev
+  only:
+    - develop
+
+  dependencies:
+    - build_npm_dev
+    - composer_install
+
+build_docker_prod:
+  <<: *build_docker
+  variables:
+    NAMESPACE: prod
+  only:
+    - master
+  dependencies:
+    - composer_install
+    - build_npm_prod
+
+.deploy: &deploy
+  stage: deploy
+  image: lwolf/helm-kubectl-docker:latest
+  script:
+    - apk add --no-cache git
+    - git clone https://gitlab-ci-token:$CI_JOB_TOKEN@git.cpadev.com/dropwow2/deploy-chart.git
+    - mkdir -p /root/.kube/
+    - mkdir -p /root/.helm/
+    - echo ${KUBECONFIGBASE} | base64 -d > /root/.kube/config 
+    - echo ${HELM_CAPEM} | base64 -d > /root/.helm/ca.pem
+    - echo ${HELM_CERTPEM} | base64 -d  > /root/.helm/cert.pem
+    - echo ${HELM_KEYPEM} | base64 -d  > /root/.helm/key.pem
+    - helm init --client-only --service-account tiller
+    - ./deploy-chart/helm.sh deploy
+
+  tags: 
+    - k8s
+
+deploy_dev:
+  <<: *deploy
+  environment:
+    name: dev
+  variables:
+    NAMESPACE: dev
+  only:
+    - develop
+
+  
+
+deploy_prod:
+  <<: *deploy
+  environment:
+    name: prod
+  variables:
+    NAMESPACE: prod
+  only:
+    - master
+  
+.logs: &logs
+  stage: logs
+  image: lwolf/helm-kubectl-docker:latest
+  script:
+    - mkdir -p /root/.kube/
+    - echo ${KUBECONFIGBASE} | base64 -d > /root/.kube/config 
+    - kubectl get all -n ${NAMESPACE} -l "release=${PROJECT_NAME}"
+    - kubectl logs -n ${NAMESPACE} $(kubectl get pods -n ${NAMESPACE} -l "role=db-migrate,release=${PROJECT_NAME} " -o jsonpath='{ .items[0].metadata.name }')
+
+  tags:
+    - k8s
+  when: always     
+    
+logs_dev:
+  <<: *logs
+  environment:
+    name: dev
+  variables:
+    NAMESPACE: dev
+  only:
+    - develop
+
+logs_prod:
+  <<: *logs
+  environment:
+    name: prod
+  variables:
+    NAMESPACE: prod
+  only:
+    - master   

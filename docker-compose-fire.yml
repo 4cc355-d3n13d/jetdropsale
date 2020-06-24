@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  php:
+    image: registry.cpadev.com:4567/dropwow2/docker/php-blackfire
+
+  blackfire:
+      container_name: dw_blackfire
+      image: blackfire/blackfire
+      environment:
+          BLACKFIRE_SERVER_ID: '${BLACKFIRE_SERVER_ID}'
+          BLACKFIRE_SERVER_TOKEN: '${BLACKFIRE_SERVER_TOKEN}'
+          BLACKFIRE_CLIENT_ID: '${BLACKFIRE_CLIENT_ID}'
+          BLACKFIRE_CLIENT_TOKEN: '${BLACKFIRE_CLIENT_TOKEN}'
+          PHP_INI_DIR: '/etc/php.d/'
+      links:
+          - php
+      restart: always
+      ports:
+        - "8707:8707"

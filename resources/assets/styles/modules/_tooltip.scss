@@ -1,0 +1,40 @@
+$arrow-size: 6px;
+.tooltip {
+    background-color: #fff;
+    border: 1px solid #eeeeef;
+    border-radius: $base-gutter / 2;
+    box-shadow: 0 0 4px rgba(0,0,0,.1);
+    color: #666;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    padding: $base-gutter * 2;
+    position: absolute;
+    width: $base-gutter * 25;
+    &:before {
+        content: "";
+        border-bottom: $arrow-size solid transparent;
+        border-right: $arrow-size solid #eeeeef;
+        border-top: $arrow-size solid transparent;
+        height: 0;
+        left: -$arrow-size;
+        position: absolute;
+        top: calc(50% - #{$arrow-size / 2});
+        width: 0;
+    }
+    &:after {
+        content: "";
+        border-bottom: $arrow-size solid transparent;
+        border-right: $arrow-size solid #fff;
+        border-top: $arrow-size solid transparent;
+        height: 0;
+        left: calc(#{-$arrow-size} + 1px);
+        position: absolute;
+        top: calc(50% - #{$arrow-size / 2});
+        width: 0;
+    }
+    &.l-c {
+        left: calc(100% + #{$base-gutter});
+        top: -30px;
+    }
+}

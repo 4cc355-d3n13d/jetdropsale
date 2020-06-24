@@ -1,0 +1,134 @@
+{
+   "product_code":32829079343,
+   "product":"Princess Children",
+   "price":6.76,
+   "amount":5595,
+   "description":"description",
+   "categories":[
+      "Mother & Kids",
+      "Girls' Clothing",
+      "Dresses"
+   ],
+   "categoriesUrl":[
+      "//www.aliexpress.com/category/1501/mother-kids.html",
+      "//www.aliexpress.com/category/100003199/girls-clothing.html",
+      "//www.aliexpress.com/category/100005782/dresses.html"
+   ],
+   "mainImageUrl":"https://ae01.alicdn.com/kf/HTB1n3GcSVXXXXbmXpXXq6xXFXXX7/Princess-Children-Girls-Summer-Dress-Sleeveless-Strap-Toddler-Kids-Tutu-Party-Dresses-Maxi-Long-Sundress-Pageant.jpg",
+   "addImageUrls":null,
+   "options":[
+      {
+         "option_name":"Kid US Size",
+         "ali_option_id":200000463,
+         "variants":[
+            {
+               "ali_variant_id":200004188,
+               "variant_selector":"",
+               "variant_name":"3T",
+               "modifier":0,
+               "image_path":"",
+               "modifier_type":"A"
+            },
+            {
+               "ali_variant_id":200004189,
+               "variant_selector":"",
+               "variant_name":"4T",
+               "modifier":0.099999905,
+               "image_path":"",
+               "modifier_type":"A"
+            },
+            {
+               "ali_variant_id":200004191,
+               "variant_selector":"",
+               "variant_name":"5",
+               "modifier":0.1699996,
+               "image_path":"",
+               "modifier_type":"A"
+            },
+            {
+               "ali_variant_id":200004192,
+               "variant_selector":"",
+               "variant_name":"6",
+               "modifier":0.26999998,
+               "image_path":"",
+               "modifier_type":"A"
+            },
+            {
+               "ali_variant_id":200004193,
+               "variant_selector":"",
+               "variant_name":"7",
+               "modifier":0.35999966,
+               "image_path":"",
+               "modifier_type":"A"
+            },
+            {
+               "ali_variant_id":200004194,
+               "variant_selector":"",
+               "variant_name":"8",
+               "modifier":0.4499998,
+               "image_path":"",
+               "modifier_type":"A"
+            }
+         ]
+      }
+   ],
+   "status":"A",
+   "combinations":[
+      {
+         "combination":{
+            "200000463":"200004188"
+         },
+         "amount":957,
+         "price":6.76
+      },
+      {
+         "combination":{
+            "200000463":"200004189"
+         },
+         "amount":935,
+         "price":6.86
+      },
+      {
+         "combination":{
+            "200000463":"200004191"
+         },
+         "amount":934,
+         "price":6.93
+      },
+      {
+         "combination":{
+            "200000463":"200004192"
+         },
+         "amount":919,
+         "price":7.03
+      },
+      {
+         "combination":{
+            "200000463":"200004193"
+         },
+         "amount":932,
+         "price":7.12
+      },
+      {
+         "combination":{
+            "200000463":"200004194"
+         },
+         "amount":918,
+         "price":7.21
+      }
+   ],
+   "details": {
+       "Adaptation Type:": "Factory sales",
+       "Brand Name:": "winds story",
+       "Material:": "Cloth",
+       "Model Number:": "Party shark hat",
+       "Occasion:": "Halloween,Birthday Party,Party,Grand Event,New Year,Children's Day",
+       "Package:": "1pcs",
+       "Pattern:": "Animal",
+       "is_customized:": "Yes"
+   },
+   "seller":{
+      "id":2034084,
+      "name":"Mommy ^_^ Baby"
+   }
+}

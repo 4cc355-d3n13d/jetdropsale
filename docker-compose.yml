@@ -1,0 +1,68 @@
+version: '3.4'
+
+services:
+  php:
+    container_name: "dw-php"
+    image: php:7.2-fpm-alpine
+    volumes:
+      - .:/var/www/dropwow:delegated
+
+  nginx:
+    container_name: "dw-nginx"
+    image: registry.cpadev.com:4567/dropwow2/docker/nginx
+    volumes:
+      - ./public:/var/www/dropwow/public:delegated
+    environment:
+      - VIRTUAL_HOST=dropwow.loc,*.dropwow.loc
+    networks:
+      - default
+      - public
+
+  percona:
+    container_name: "dw-mysql"
+    image: percona
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=dropwow_app
+    volumes:
+      - mysqldata:/var/lib/mysql
+    command: "--max-allowed-packet=64M"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  redis:
+    container_name: "dw-redis"
+    image: redis:alpine
+    volumes:
+      - redis-data:/data
+
+  elasticsearch:
+    container_name: "dw-elastic-search"
+    image: registry.cpadev.com:4567/dropwow2/docker/elastic/oss
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+      - ./docker/elastic/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+
+volumes:
+  mysqldata:
+    external: true
+    name: db_mysql
+  redis-data:
+  esdata1:
+    driver: local
+
+networks:
+  public:
+    external:
+      name: public

@@ -1,0 +1,167 @@
+.sidebar-menu-unregistr {
+    text-align: center;
+    margin: auto;
+
+    .appeal-text {
+        display: flex;
+        margin-top: $base-gutter * 4;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 85%;
+
+        .appeal-first {
+
+            display: flex;
+            flex-direction: column;
+
+            .appeal-content {
+                font-weight: bold;
+                width: 100%;
+                justify-content: center;
+
+                font-size: 18px;
+                margin-bottom: $base-gutter;
+                word-break: normal;
+                word-wrap: break-spaces;
+            }
+            .appeal-item {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: $base-gutter;
+                margin-left: $base-gutter*2;
+                font-size: 14px;
+            }
+
+            .learn-more {
+                margin-left: $base-gutter * 10;
+                margin-bottom: $base-gutter * 8;
+                margin-top: $base-gutter;
+                text-decoration: underline;
+                font-size: 14px;
+
+            }
+
+        }
+        .appeal-second {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .shopify-icon {
+                width: 70px;
+                height: 20px;
+            }
+            .yellow-button-container {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: $base-gutter * 1;
+                margin-left: 4px;
+                .yellow-button {
+                    .add_dropwow_to {
+                        margin-right: 6px;
+                    }
+
+                    background-color: #ffa300;
+                    height: $base-gutter * 4;
+                    padding: $base-gutter;
+                    color: white;
+                    border-radius: $base-gutter/2;
+                    display: flex;
+                    justify-content: center;
+                    justify-self: center;
+                    align-items: center;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 14px;
+
+                    &:hover {
+                        background-color: #e29c3b;
+                    }
+                }
+            }
+            .already-have-account {
+                margin-bottom: $base-gutter*4;
+                width: 100%;
+                justify-content: space-around;
+                display: flex;
+
+                .question {
+                    font-size: 14px;
+                }
+
+                .log-in {
+                    font-size: 14px;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .appeal-third {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .start-dropshipping {
+                font-weight: bold;
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+                display: flex;
+                word-wrap: break-spaces;
+                justify-self: flex-end;
+                font-style: italic;
+            }
+        }
+
+    }
+
+
+    &__item {
+        color: #fff;
+        display: block;
+        margin: $base-gutter * 4 0;
+        text-align: center;
+    }
+    &__icon {
+        align-items: center;
+        background-color: #34313a;
+        border-radius: 50%;
+        color: #ffc75b;
+        display: flex;
+        font-size: 20px;
+        height: $base-gutter * 6;
+        justify-content: center;
+        margin: 0 auto $base-gutter * 1.5 auto;
+        width: $base-gutter * 6;
+    }
+    &__text {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+    }
+    &__trigger {
+        border: 1px solid #1f8d5f;
+        border-radius: $base-gutter / 2;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        margin-top: $base-gutter * 4;
+        padding: $base-gutter * 1.5 $base-gutter * 2;
+        text-align: center;
+        white-space: nowrap;
+        width: calc(100% - #{$base-gutter * 6});
+        @media only screen and (max-width: 1368px)  {
+            font-size: 13px;
+            padding: $base-gutter $base-gutter * 2;
+        }
+        &:hover {
+            background-color: #1f8d5f;
+            color: #fff;
+        }
+        i {
+            color: #ffc75b;
+            margin-right: $base-gutter;
+        }
+    }
+}

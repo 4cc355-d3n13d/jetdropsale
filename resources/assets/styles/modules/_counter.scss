@@ -1,0 +1,34 @@
+.counter {
+    border: 2px solid #f0f0f0;
+    border-radius: 3px;
+    color: #808080;
+    display: inline-block;
+    overflow: hidden;
+    & > * {
+        align-items: center;
+        border-left: 2px solid #f0f0f0;
+        display: flex;
+        float: left;
+        height: $base-gutter * 4;
+        justify-content: center;
+        width: $base-gutter * 4;
+        &:first-child { border-left: none; }
+    }
+    &__btn {
+        color: #808080;
+        cursor: pointer;
+        &:hover {
+            background-color: #1f8d5f;
+            color: #fff;
+        }
+    }
+    &__textfield {
+        input {
+            background-color: transparent;
+            border-color: transparent;
+            color: #808080;
+            text-align: center;
+            width: 100%;
+        }
+    }
+}

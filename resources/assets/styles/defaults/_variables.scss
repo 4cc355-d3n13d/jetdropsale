@@ -1,0 +1,103 @@
+
+@font-face {
+    font-family: 'Monserat-Regular';
+    src: url("../../fonts/montserrat-regular.eot");
+    src: url("../../fonts/montserrat-regular.eot?#iefix") format("embedded-opentype"),
+         url("../../fonts/montserrat-regular.woff") format("woff"),
+         url("../../fonts/montserrat-regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Monserat-Medium';
+    src: url("../../fonts/montserrat-medium.eot");
+    src: url("../../fonts/montserrat-medium.eot?#iefix") format("embedded-opentype"),
+         url("../../fonts/montserrat-medium.woff") format("woff"),
+         url("../../fonts/montserrat-medium.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+$img-dir: "../img/";
+$border-radius-base: 0;
+
+/*----fonts----*/
+$brand-font-regular: 'Monserat-Regular', 'Arial', serif;
+$brand-font-medium: 'Monserat-Medium', 'Arial', serif;
+$font-size-base: 14px;
+
+/*---general---*/
+$grid-columns: 12;
+$container-md: 960px;
+$container-lg: 1200px;
+$site-column: 84px;
+$base-gutter: 10px;
+
+$content-width: 1200px;
+@media only screen and (max-width: 1200px) {
+    $content-width: auto;
+}
+
+/*---colors----*/
+$brand-valid: #1ada90;
+$brand-invalid: #cc3535;
+
+$white: #fff;
+$white-dark: #fafbfd;
+$gray-light: #dedede;
+$gray: #ccc;
+$gray-dark: #666;
+$black: #333;
+$black-dark: #000;
+
+$brand-color-light: #58b4f5;
+//$brand-color: #d47a7a;
+//$brand-color-dark: #d26d6d;
+
+$brand-color: #a72d4f;
+$brand-color-dark: #90314f;
+
+$shadow-color: rgba(0,0,0,.3);
+
+$body-bg: $white-dark;
+
+//site-settings
+$view-border: 0px;
+$sidebar-size: $base-gutter * 24;
+
+.transition{
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.rotate-45 {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.rotate-180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.is-left { float: left; }
+.is-right { float: right; }
+
+.text {
+    &-left { text-align: left; }
+    &-center { text-align: center; }
+    &-right { text-align: right; }
+}
+
+.navigation-gradient {
+  background: $brand-color; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($gray, $brand-color, $gray); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($gray, $brand-color, $gray); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($gray, $brand-color, $gray); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($gray, $brand-color, $gray); /* Standard syntax */
+}

@@ -1,0 +1,204 @@
+
+//.category__content {
+//  display: flex;
+//  //flex-direction: column;
+//
+//  .category__left-sidebar {
+//    background-color: $white;
+//    //padding: $base-gutter;
+//    flex: 1;
+//    border-radius: 3px;
+//    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.08);
+//
+//    & > * {
+//      margin: $base-gutter;
+//    }
+//
+//    .slider-container {
+//      width: 90%;
+//    }
+//    .subcategories-price {
+//      margin-bottom: $base-gutter*3
+//    }
+//    .price-inputs {
+//      display: flex;
+//      justify-content: space-evenly;
+//
+//      .price-input-container {
+//        color: $gray-dark;
+//        position: relative;
+//
+//        .price-input-dollar-sign {
+//          position: absolute;
+//          left: 10px;
+//          top: 9px;
+//          font-size: 12px;
+//          color: $gray-dark;
+//        }
+//
+//        .price-input {
+//          border-radius: 3px;
+//          padding: 10px 10px 10px 20px;
+//          width: 100px;
+//          border: 1px solid $gray-light;
+//
+//        }
+//
+//      }
+//
+//    }
+//    .subcategory-list {
+//      margin: 0;
+//      display: flex;
+//      flex-direction: column;
+//      //border: 1px solid $gray;
+//      &__subcategory {
+//        cursor: pointer;
+//        display: flex;
+//        color: $gray-dark;
+//        font-size: 12px;
+//        height: 60px;
+//        align-items: center;
+//        //justify-content: center;
+//        padding: $base-gutter;
+//        &__content {
+//          display: flex;
+//          width: 100%;
+//          justify-content: space-between;
+//          &__title {
+//
+//          }
+//          &__icon {
+//            font-size: 20px;
+//            color: $gray-light;
+//          }
+//        }
+//        &:not(:last-child) {
+//          border-bottom: 1px solid $gray-light;
+//        }
+//        &:first-child {
+//          border-top: 1px solid $gray-light;
+//        }
+//
+//      }
+//    }
+//
+//  }
+//
+//  .catalogue__category {
+//    flex: 3;
+//  }
+//}
+
+.category {
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    @media only screen and (max-width: 1200px) {
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      & > * {
+        margin: $base-gutter 0;
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: -$base-gutter;
+        }
+      }
+    }
+  }
+  &__body {
+    display: flex;
+    @media only screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+    .category__sidebar {
+      @media only screen and (max-width: 768px) {
+       display: none;
+      }
+      position: relative;
+      min-width: 280px;
+    }
+  }
+  & > * {
+    margin: $base-gutter * 3 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  &__content {
+    & > * {
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+  &__tabs {
+    justify-content: flex-end;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    @media only screen and (max-width: 1200px) {
+      justify-content: flex-start;
+    }
+    &_item {
+      color: #666;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 20px;
+      margin-left: $base-gutter * 5;
+      position: relative;
+      white-space: nowrap;
+      @media only screen and (max-width: 768px) {
+        font-size: 13px;
+        margin-left: $base-gutter;
+      }
+      i {
+        color: #999;
+        @media only screen and (max-width: 768px) {
+          display: none;
+        }
+      }
+      &:before {
+        content: "";
+        background-color: transparent;
+        bottom: -$base-gutter / 2;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+      i {
+        margin-right: $base-gutter;
+      }
+      &.is-active {
+        color: #1f8d5f;
+        cursor: default;
+        &:before {
+          background-color: #1f8d5f;
+        }
+        i {
+          color: inherit;
+        }
+      }
+    }
+  }
+}

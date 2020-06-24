@@ -1,0 +1,111 @@
+gitRegistry: registry.cpadev.com:4567/dropwow2/web-app
+namespace: dev
+projectName: web-app
+nginx:
+  api:
+    replicaCount: 1
+    hosts:
+      - api.dev-dropwow.com
+    basicAuth: api-basic-auth
+  www:
+    replicaCount: 1
+    hosts:
+      - dev-dropwow.com
+      - www.dev-dropwow.com
+    basicAuth: api-basic-auth
+phpfpm:
+  api:
+    replicaCount: 1
+    env:
+      APP_API: "true" 
+  www:
+    replicaCount: 1
+
+phpworkers:
+  queue-work:
+    command: php artisan horizon
+    replicaCount: 1
+    
+cronjob:
+  name: artisan-schedule
+  schedule: "*/1 * * * *"
+  command: "php artisan schedule:run"
+
+migrateCommand: "php artisan migrate"
+
+phpEnv:
+  APP_NAME: "Dropwow.dev"
+  APP_ENV: "staging"
+  APP_KEY: "51EFA6221B4819D68459261D47D4E91C"
+  APP_DEBUG: "true"
+  DEBUGBAR_ENABLED: "true"
+  APP_URL: "https://dev-dropwow.com"
+
+  BASE_HOST: "dev-dropwow.com"
+  API_HOST: "api.dev-dropwow.com"
+
+  TIMEZONE: "Europe/Moscow"
+  SLACK_WEBHOOK: "https://hooks.slack.com/services/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"
+  LOG_CHANNEL: "stack"
+  SENTRY_LARAVEL_DSN: "https://d54a4d365ce94efcb1c7ebe798040192:6d1e2e2ca488410fb5c0dc8799e234ea@sentry.cpadev.com/17"
+  CARD_IMAGE_PATH: "images/cardbrand/"
+
+  DB_CONNECTION: "mysql"
+  DB_HOST_MASTER: "mysql-mysqlha-0.mysql-mysqlha"
+  DB_HOST_SLAVE: "mysql-mysqlha-1.mysql-mysqlha"
+  DB_PORT: "3306"
+  DB_DATABASE: "dropwow_app"
+  DB_USERNAME: "dropwow_app"
+  DB_PASSWORD: "JQXCWYR2Qc"
+
+  BROADCAST_DRIVER: "log"
+  CACHE_DRIVER: "redis"
+  SESSION_DRIVER: "redis"
+  SESSION_LIFETIME: "120"
+  QUEUE_DRIVER: "redis"
+
+  REDIS_HOST: "redis-master"
+  #REDIS_PASSWORD: ""
+  REDIS_PORT: "6379"
+
+  MAIL_DRIVER: "smtp"
+  MAIL_HOST: "smtp.mailtrap.io"
+  MAIL_PORT: "2525"
+  #MAIL_USERNAME: ""
+  #MAIL_PASSWORD: ""
+  #MAIL_ENCRYPTION: ""
+
+  #PUSHER_APP_ID: ""
+  #PUSHER_APP_KEY: ""
+  #PUSHER_APP_SECRET: ""
+  PUSHER_APP_CLUSTER: "mt1"
+
+  #MIX_PUSHER_APP_KEY: ""
+  #MIX_PUSHER_APP_CLUSTER: ""
+
+
+
+  SCOUT_QUEUE: "true"
+  SCOUT_DRIVER: "elastic"
+  ELASTICSEARCH_INDEX: "laravel"
+  ELASTICSEARCH_HOST: "http://elasticsearch-client:9200"
+  SCOUT_ELASTIC_HOST: "http://elasticsearch-client:9200"
+
+  GOOGLE_REDIRECT_URI: "https://dev-dropwow.com/login/google/callback"
+  SHOPIFY_REDIRECT_URI: "https://dev-dropwow.com/login/shopify/callback"
+
+  ALI_PARSER_ENDPOINT: "http://go-products-goworker-ali-parser.dev.svc.cluster.local/parse"
+
+  CSCART_API_MIGRATION_ENDPOINT: "https://market.dropwow.com/api/migration"
+  CSCART_API_TOKEN: "17fbdec7a6029ac49489a7e978cc545f624d483d68b2ae9dd89209587b215df7"
+
+  SHOPIFY_CHARGE_NAME: "Dropwow"
+  SHOPIFY_CHARGE_PRICE: "29.0"
+  SHOPIFY_CHARGE_TEST_CHARGES: "true"
+  SHOPIFY_CHARGE_TRIAL_DAYS: "7"
+
+  STRIPE_SECRET_KEY: "sk_test_E9yqkHhBZyccEOcueXEbXCHX"
+  STRIPE_PUBLIC_KEY: "pk_test_6rqV3cxwn0OkhYVqJvEwZnrD"
+
+  BLACKFIRE_CLIENT_ID: "91775079-f452-4dc8-87d3-c63fe291c46b"
+  BLACKFIRE_CLEINT_TOKEN: "b2dbc783ecf04e5d01cf00308003ecc00ddaf80a0968a5f9f18abdd00b56b9ef"

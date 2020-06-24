@@ -1,0 +1,19 @@
+# Laravel queue worker using systemd
+# ----------------------------------
+#
+# /etc/systemd/system/laravel-horizon.service
+#
+# run this command to enable service:
+# systemctl enable laravel-queue.service
+
+[Unit]
+Description=Laravel queue worker (horizon)
+
+[Service]
+User=deployer
+Group=nginx
+Restart=always
+ExecStart=/usr/bin/php /var/www/dropwow.com/current/artisan horizon --env=production
+
+[Install]
+WantedBy=multi-user.target

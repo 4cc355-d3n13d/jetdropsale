@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+set_time_limit(0);
+ini_set('memory_limit', -1);
+
+`php artisan cache:clear` && `php artisan config:clear` && `php artisan l5-swagger:generate`;
+
+require 'vendor/bin/phpunit';

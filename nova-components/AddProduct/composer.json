@@ -1,0 +1,30 @@
+{
+    "name": "dropwow-nova/add-product-card",
+    "description": "A Dropwow Nova card.",
+    "keywords": [
+        "dropwow",
+        "nova",
+        "ali"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dropwow\\AddProduct\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dropwow\\AddProduct\\CardServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

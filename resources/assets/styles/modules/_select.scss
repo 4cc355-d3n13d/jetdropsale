@@ -1,0 +1,32 @@
+.select {
+    &__label {
+        border: 2px solid #f0f0f0;
+        border-radius: $base-gutter / 2;
+        color: #999;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 20px;
+        min-width: $base-gutter * 18.5;
+        padding: $base-gutter * 1.5;
+        padding-right: $base-gutter * 5;
+        position: relative;
+        @media only screen and (max-width: 768px)  {
+            width: 100%;
+        }
+        &_text {
+            & > * { margin-right: $base-gutter / 2; }
+            img { vertical-align: middle; }
+        }
+        &_arrow {
+            align-items: center;
+            color: #dbdbdb;
+            display: flex;
+            height: $base-gutter * 5;
+            justify-content: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: $base-gutter * 5;
+        }
+    }
+}

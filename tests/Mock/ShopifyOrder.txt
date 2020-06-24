@@ -1,0 +1,206 @@
+{
+   "id":580244734022,
+   "email":"BLnXRR3w@connectebay.com",
+   "closed_at":null,
+   "created_at":"2018-08-28T17:44:30-04:00",
+   "updated_at":"2018-08-28T17:44:33-04:00",
+   "number":118,
+   "note":null,
+   "token":"eea22cc8501325cd20a1aa9d18e164d7",
+   "gateway":"eBay\/PayPal",
+   "test":false,
+   "total_price":"79.98",
+   "subtotal_price":"79.98",
+   "total_weight":0,
+   "total_tax":"0.00",
+   "taxes_included":false,
+   "currency":"USD",
+   "financial_status":"paid",
+   "confirmed":true,
+   "total_discounts":"0.00",
+   "total_line_items_price":"79.98",
+   "cart_token":null,
+   "buyer_accepts_marketing":false,
+   "name":"#1118",
+   "referring_site":null,
+   "landing_site":null,
+   "cancelled_at":null,
+   "cancel_reason":null,
+   "total_price_usd":"79.98",
+   "checkout_token":null,
+   "reference":null,
+   "user_id":null,
+   "location_id":null,
+   "source_identifier":null,
+   "source_url":null,
+   "processed_at":"2018-08-28T17:44:30-04:00",
+   "device_id":null,
+   "phone":null,
+   "customer_locale":null,
+   "app_id":1775805,
+   "browser_ip":null,
+   "landing_site_ref":null,
+   "order_number":1118,
+   "discount_applications":[
+
+   ],
+   "discount_codes":[
+
+   ],
+   "note_attributes":[
+      {
+         "name":"eBay Item #",
+         "value":"123319945257"
+      },
+      {
+         "name":"eBayDeliverByDate",
+         "value":"2018-09-06T07:00:00"
+      }
+   ],
+   "payment_gateway_names":[
+      "eBay\/PayPal"
+   ],
+   "processing_method":"",
+   "checkout_id":null,
+   "source_name":"1775805",
+   "fulfillment_status":null,
+   "tax_lines":[
+
+   ],
+   "tags":"eBay",
+   "contact_email":"BLnXRR3w@connectebay.com",
+   "order_status_url":"https:\/\/checkout.shopify.com\/1434746950\/orders\/eea22cc8501325cd20a1aa9d18e164d7\/authenticate?key=82fa1a9c44a9d40d0b468fc786531e1b",
+   "total_tip_received":"0.0",
+   "line_items":[
+      {
+         "id":1413541953606,
+         "variant_id":2,
+         "title":"Fujifilm Instax Mini Instant Film",
+         "quantity":2,
+         "price":"39.99",
+         "sku":"230f21d3-0-size-20-sheets",
+         "variant_title":null,
+         "vendor":"DreamLoves",
+         "fulfillment_service":"manual",
+         "product_id":1,
+         "requires_shipping":true,
+         "taxable":true,
+         "gift_card":false,
+         "name":"Fujifilm Instax Mini Instant Film",
+         "variant_inventory_management":"shopify",
+         "properties":[
+
+         ],
+         "product_exists":true,
+         "fulfillable_quantity":2,
+         "grams":0,
+         "total_discount":"0.00",
+         "fulfillment_status":null,
+         "discount_allocations":[
+
+         ],
+         "tax_lines":[
+
+         ]
+      }
+   ],
+   "shipping_lines":[
+      {
+         "id":490001137734,
+         "title":"Standard Shipping",
+         "price":"0.00",
+         "code":"Standard Shipping",
+         "source":"eBay",
+         "phone":null,
+         "requested_fulfillment_service_id":null,
+         "delivery_category":null,
+         "carrier_identifier":null,
+         "discounted_price":"0.00",
+         "discount_allocations":[
+
+         ],
+         "tax_lines":[
+
+         ]
+      }
+   ],
+   "billing_address":{
+      "first_name":"Yen-Lin",
+      "address1":"1010 16th St Apt 501",
+      "phone":"3193336506",
+      "city":"San Francisco",
+      "zip":"94107",
+      "province":"California",
+      "country":"United States",
+      "last_name":"Tsai",
+      "address2":"",
+      "company":null,
+      "latitude":37.7666183,
+      "longitude":-122.3974891,
+      "name":"Yen-Lin Tsai",
+      "country_code":"US",
+      "province_code":"CA"
+   },
+   "shipping_address":{
+      "first_name":"Yen-Lin",
+      "address1":"1010 16th St Apt 501",
+      "phone":"3193336506",
+      "city":"San Francisco",
+      "zip":"94107",
+      "province":"California",
+      "country":"United States",
+      "last_name":"Tsai",
+      "address2":"",
+      "company":null,
+      "latitude":37.7666183,
+      "longitude":-122.3974891,
+      "name":"Yen-Lin Tsai",
+      "country_code":"US",
+      "province_code":"CA"
+   },
+   "fulfillments":[
+
+   ],
+   "refunds":[
+
+   ],
+   "customer":{
+      "id":701988438086,
+      "email":"BLnXRR3w@connectebay.com",
+      "accepts_marketing":false,
+      "created_at":"2018-08-28T17:44:28-04:00",
+      "updated_at":"2018-08-28T17:44:30-04:00",
+      "first_name":"Yen-Lin",
+      "last_name":"Tsai",
+      "orders_count":1,
+      "state":"disabled",
+      "total_spent":"79.98",
+      "last_order_id":580244734022,
+      "note":"eBay User: jamie82226",
+      "verified_email":true,
+      "multipass_identifier":null,
+      "tax_exempt":false,
+      "phone":null,
+      "tags":"eBay",
+      "last_order_name":"#1118",
+      "default_address":{
+         "id":769699020870,
+         "customer_id":701988438086,
+         "first_name":"Yen-Lin",
+         "last_name":"Tsai",
+         "company":null,
+         "address1":"1010 16th St Apt 501",
+         "address2":"",
+         "city":"San Francisco",
+         "province":"California",
+         "country":"United States",
+         "zip":"94107",
+         "phone":"3193336506",
+         "name":"Yen-Lin Tsai",
+         "province_code":"CA",
+         "country_code":"US",
+         "country_name":"United States",
+         "default":true
+      }
+   }
+}

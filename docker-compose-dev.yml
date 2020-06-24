@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  php:
+    volumes:
+      - ${PWD}/docker/php/xdebug.ini:/etc/php.d/xdebug.ini:ro
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+    environment:
+      - PHP_IDE_CONFIG=serverName=${BASE_HOST}
+      - XDEBUG_CONFIG=remote_enable=true remote_host=host.docker.internal remote_port=9000 idekey=DROPWOW_DEV_IDE remote_autostart=true
+
+  percona:
+    ports:
+      - "3306:3306"
+
+  elasticsearch:
+    ports:
+      - "9200:9200"
+
+  redis:
+    ports:
+      - "6379:6379"

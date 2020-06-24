@@ -1,0 +1,95 @@
+@import "../_variables.module.scss";
+
+.dw-three-points {
+  cursor: default;
+  &:hover {
+    background-color: white !important;
+  }
+
+}
+
+.dw-pagination {
+  display: flex;
+  width: auto;
+  height: 60px;
+  padding: 0;
+  max-width: fit-content;
+  background-color: $white;
+  border-radius: $round-corners;
+  margin: auto;
+
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+
+  .dw-arrow {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    .dw-angle-left {
+      height: 22px;
+      width: 22px;
+      font-weight: bold;
+      transform: rotate(90deg);
+      color: $gray;
+    }
+
+    .dw-angle-right {
+      height: 22px;
+      width: 22px;
+      color: $gray;
+      transform: rotate(-90deg);
+      font-weight: bold;
+    }
+    &:hover {
+      background-color: $gray-light;
+    }
+  }
+
+  .dw-active_page {
+    background-color: $brand-green;
+    color: white !important;
+    min-width: 60px;
+    &:hover {
+      background-color: $brand-green !important;
+    }
+  }
+
+  .dw-pages-container {
+    display: flex;
+
+    & > * {
+      margin: 1px !important;
+
+    }
+
+    &__page {
+      user-select: none;
+      color: $gray-dark;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      width: 60px;
+      min-width: 60px;
+
+      &:not(:last-child) {
+        border-left: 1px solid $gray-light;
+
+      }
+      &:last-child {
+        border-left: 1px solid $gray-light;
+        border-right: 1px solid $gray-light;
+      }
+      &:hover {
+        background-color: $gray-light;
+      }
+    }
+
+  }
+}
+

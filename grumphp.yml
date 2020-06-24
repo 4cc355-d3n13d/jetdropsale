@@ -1,0 +1,21 @@
+parameters:
+    git_dir: .
+    bin_dir: vendor/bin
+    tasks:
+        shell:
+            scripts:
+              - ["-c", "./phpunit"]
+            triggered_by: [php]
+        phpcs:
+            standard: ruleset.xml
+            warning_severity: ~
+            ignore_patterns:
+              - config/
+              - resources/
+              - database/
+              - routes/
+              - vendor/
+              - tests/
+              - deploy.php
+              - public/index.php
+            triggered_by: [php]

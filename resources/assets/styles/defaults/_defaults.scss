@@ -1,0 +1,148 @@
+body,html{
+    background-color: $body-bg;
+    font-family: $brand-font-regular;
+    height: 100%;
+    //min-width: 1200px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+* {
+    font-family: $brand-font-regular;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+b,
+strong {
+    font-family: $brand-font-medium;
+    font-weight: normal;
+}
+
+.clearfix {
+    &:after {
+        content: "";
+        display: table;
+        width: 100%;
+    }
+}
+td, th {
+    border-collapse: collapse;
+}
+a {
+    color: inherit !important;
+    position: relative;
+    &:hover,
+    &:focus,
+    &:active {
+        color: inherit;
+    }
+}
+
+:focus::-webkit-input-placeholder {color: #666; font-size: 14px;}
+:focus::-moz-placeholder          {color: #666; font-size: 14px;}
+:focus:-moz-placeholder           {color: #666; font-size: 14px;}
+:focus:-ms-input-placeholder      {color: #666; font-size: 14px;}
+
+input[placeholder]          {text-overflow: ellipsis;}
+input::-moz-placeholder     {text-overflow: ellipsis;}
+input:-moz-placeholder      {text-overflow: ellipsis;}
+input:-ms-input-placeholder {text-overflow: ellipsis;}
+
+::-webkit-input-placeholder {color: #666; font-size: 14px; }
+::-moz-placeholder          {color: #666; font-size: 14px; opacity: 1; }/* Firefox 19+ */
+:-moz-placeholder           {color: #666; font-size: 14px; opacity: 1; }/* Firefox 18- */
+:-ms-input-placeholder      {color: #666; font-size: 14px; }
+
+.info {
+    color: #bbb;
+    position: relative;
+}
+body {
+    border: $view-border solid $white;
+    margin: 0;
+    padding: 0;
+    a {
+        //color: $black;
+        text-decoration: none;
+        &:hover{
+            //color: $brand-color;
+            text-decoration: none;
+        }
+        &:visited,
+        &:focus {
+            //color: $black;
+            text-decoration: none;
+        }
+    }
+    button {
+        &:visited,
+        &:focus {
+            outline: none;
+        }
+    }
+    input,
+    textarea{
+        &:focus {
+            outline: none;
+        }
+    }
+}
+.container {
+    @media only screen and (min-width: 1200px) {
+        padding: 0;
+    }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        max-width: 1199px;
+        width: auto;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        max-width: 991px;
+        width: auto;
+    }
+    @media only screen and (max-width: 767px) {
+        width: auto;
+    }
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+{ 
+    font-weight: normal;
+    margin: 0;
+ }
+mark {
+    background: transparent;
+    color: $brand-color;
+}
+
+.pull {
+    &-left { float:  left; }
+    &-right { float: right; }
+}
+
+.all-width { width: 100%; }
+.all-height { height: 300px; }
+
+.overlay {
+    background-color: $black;
+    display: block;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 200;
+    /*&:before {
+        content: "";
+        background-color: $black;
+        display: block;
+        height: 100vh;
+        left: 0;
+        opacity: 0.15;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+    }*/
+}

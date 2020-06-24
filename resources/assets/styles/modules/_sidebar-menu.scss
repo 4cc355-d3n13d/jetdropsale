@@ -1,0 +1,56 @@
+.sidebar-menu {
+    border-top: 1px solid #45414d;
+    padding: $base-gutter * 5 0;
+    width: $sidebar-size;
+    @media only screen and (max-width: 768px)  {
+        padding: $base-gutter 0;
+        width: 100%;
+    }
+    &__item {
+        color: rgba(255,255,255, .6);
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        padding: $base-gutter 0 $base-gutter $base-gutter * 2;
+        position: relative;
+        &:before {
+            content: "";
+            background-color: #f8ce47;
+            left: 0;
+            height: $base-gutter * 3;
+            opacity: 0;
+            position: absolute;
+            top: $base-gutter / 2;
+            width: 2px;
+        }
+        &_icon {
+            align-content: center;
+            color: #ffc75b;
+            display: flex;
+            float: left;
+            font-size: 16px;
+            height: $base-gutter * 2;
+            justify-content: center;
+            margin-right: $base-gutter;
+            width: $base-gutter * 2;
+        }
+        &.is-active {
+            color: #fff;
+            &:before { opacity: 1; }
+        }
+        &-inner {
+            margin-left: $base-gutter;
+            color: rgba(255, 255, 255, 0.6);
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14px;
+            padding: $base-gutter 0 $base-gutter $base-gutter;
+            @media only screen and (max-width: 768px)  {
+                display: none;
+            }
+            &:first-of-type { padding-top: $base-gutter * 2; }
+        }
+    }
+}

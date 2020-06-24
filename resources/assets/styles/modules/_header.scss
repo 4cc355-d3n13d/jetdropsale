@@ -1,0 +1,55 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.2);
+    left: $sidebar-size;
+    margin: 0;
+    padding: 0 $base-gutter * 3;
+    position: absolute;
+    top: 0;
+    width: calc(100% - #{$sidebar-size});
+    @media only screen and (max-width: 1200px)  {
+        left: 70px;
+        width: 100%;
+    }
+    @media only screen and (max-width: 900px)  {
+        padding: 0 $base-gutter * 2;
+    }
+    @media only screen and (max-width: 768px)  {
+        left: 0;
+        padding: $base-gutter / 2 $base-gutter * 2;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 20;
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1170px;
+        width: 100%;
+    }
+    &__item {
+        min-width: $base-gutter * 3;
+        @media only screen and (max-width: 768px)  {
+            justify-content: center;
+            margin: 0 $base-gutter;
+            &:first-child { margin-left: 0; }
+            &:last-child { margin-right: 0; }
+            &.hide-desktop {
+                align-items: center;
+                display: flex;
+            }
+        }
+        &-search {
+            float: right;
+            padding-top: $base-gutter / 2;
+            width: $base-gutter * 33;
+            @media only screen and (max-width: 768px)  {
+                padding-top: 0;
+                width: 100%;
+            }
+        }
+    }
+}
